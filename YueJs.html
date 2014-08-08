@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>YueJs conference</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+  <style >
+  body{
+  	background-color: #d9de50;
+  }
+.navbar{
+      position: fixed ;
+      height: 60px;
+      text-align: center;
+	  background-image: url("img/navbg.gif");
+	  background-repeat: repeat-x;
+}
+
+.navbar a {
+	font-family: Georgia;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 17px;
+	font-weight:bold;
+	text-transform: uppercase;
+	letter-spacing:-1px;
+}
+.navbar a:hover, #current {
+	font-weight: bold;
+	color: #B0693D;
+}
+.row{
+	 padding-top: 20px;
+	}
+   p{
+		font-size: 18px;
+		padding-top: 10px;
+	}
+	#index{
+		background-image: url("img/hang.png");
+		height: 480px;
+	}
+	#info{
+		background-color: #d9de50;
+	}
+	#speakers{
+		background-color: #d9de50;
+	}
+	#schedule{
+		background-color: #d9de50;
+	}
+.span4{
+	padding-bottom: 10px;
+}
+.email{
+	   height: 120px;
+       width: 400px;
+}
+.formemail{
+	margin-left: 200px;
+	padding-top: 100px;
+}
+.formbutton{
+	padding-top: 252px;
+}
+#venue-map{
+	height: 300px;
+}
+#speakerlist{
+	float: left;
+	text-align: center;
+}
+.titleh{
+	padding-top:20px; 
+	padding-bottom: 20px;
+	margin-left: 30px;
+	float: left;
+	font-family: serif;
+	font-size: 28px;
+}
+table{
+	margin-left: 200px;
+}
+td
+  {
+  height:25px;
+  vertical-align:bottom;
+  padding:15px;
+  }
+ul li{
+	list-style-type: none;
+	float: left;
+	width: 240px;
+	height: 60px;
+	margin: 0 48px;
+}
+
+.ticket{
+	padding-left: 200px;
+	margin-top: 130px;
+	font-size: 30px;
+}
+
+label{
+	text-align: center;
+    font-weight:bold;
+}
+
+.centertext{
+	text-align: center;
+	padding-left: 100px;
+}
+
+    </style>
+
+
+
+<body>
+
+<div class="container">
+<div class="navbar">
+<div class="row">
+		<div class="span2">
+			<a href="#info">大会简介</a>
+		</div>
+		<div class="span2">
+			<a href="#speakers">演讲嘉宾</a>
+		</div>
+		<div class="span2">
+			<a href="#schedule">大会议程</a>
+		</div>
+		<div class="span2">
+			<a href="#sponsors">赞助商</a>
+		</div>
+		<div class="span2">
+			<a href="#prejs">往期回顾</a>
+		</div>
+		<div class="span2">
+			<a href="#subscribe">关注我们</a>
+		</div>
+	</div>
+</div>
+</div>
+<div class="container" id="index">
+<div class="row"  >
+	<div class="span12" >
+	<p><img src="img/logo4.jpg"></p>
+	</div>
+	<div class="span6 offset3 ticket">
+	<strong><a href="http://www.headin.cn/Themes/Activity/Details?activityId=5367725ac3378f366c05ba4c">点击购票</a>
+	</strong></div>
+
+<div class="span12">
+	<!-- <div class="span6  formemail"> -->
+   <form class="navbar-search pull-left formemail" onsubmit="return validate_form(this)">
+        <input type="text" class="search-query email" name="email" placeholder="input your email, join the conference">
+<!--           <div class="span2 formbutton"> -->
+      	 <button type="submit"  class="btn btn-primary btn-sm">提交邮箱</button>
+     <!--  </div> -->
+      </form>
+      </div>
+    
+</div>
+</div>
+
+<div class="container" id="info">
+	<div class="row">
+		<div class="span4">
+			<p><strong>大会简介</strong></p>
+		</div>
+		<div class="span8">
+			<p>粤JS——2014 JS中国开发者大会是一场专注于JavaScript和Node.js技术，为期两天的国际性技术大会。届时，大会会邀请国内外的优秀讲师为大家分享在JavaScript和Node.js技术方面的经验。大会将于10月21-22日在广州州召开</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span4">
+			<strong>会议地址</strong>
+		</div>
+		<div class="span6" onmousedown="mdown(this)" id="mapadd">
+		<div><a href="http://doubletree.com.cn/HGHHEDI/" target="_blank">广东省广州市天河区希尔顿大酒店</a></div>
+			<p><div id="venue-map"></div></p>
+		</div>
+</div>
+</div>
+
+<div class="container" id="speakers">
+<div class="row">
+	<div class="titleh">演讲者</div>
+		</div>
+		<hr>
+<div class="row" id="speakerlist">
+		<div class="span4">
+		  <a href="https://github.com/substack" target="_blank">
+              <img src="http://jsconfcn.qiniudn.com/img/speaker-jameshalliday.jpeg?imageView/2/w/150"/>
+              <label>刘畅</label>
+              <label>创始人</label>
+            </a>
+		</div>
+			<div class="span4">
+		<a href="https://github.com/zcbenz" target="_blank">
+              <img src="http://jsconfcn.qiniudn.com/img/speaker-zhaocheng.png?imageView/2/w/150" />
+              <label>刘畅</label>
+              <label>创始人</label>
+            </a>
+		</div>
+			<div class="span4">
+		<a href="http://lifesinger.github.io" target="_blank">
+              <img src="http://jsconfcn.qiniudn.com/img/speaker-yubo-updated.png?imageView/2/w/150" />
+              <label>刘畅</label>
+              <label>创始人</label>
+            </a>
+		</div>
+			<div class="span4">
+		   <a href="http://sofish.de/" target="_blank">
+              <img src="http://jsconfcn.qiniudn.com/img/speaker-sofish.png?imageView/2/w/150" />
+              <label>刘畅</label>
+              <label>创始人</label>
+            </a>
+		</div>
+			<div class="span4">
+		<a href="http://www.linkedin.com/pub/luying-li/20/854/556" target="_blank">
+              <img src="http://jsconfcn.qiniudn.com/img/speaker-luying.png?imageView/2/w/150" />
+               <label>刘畅</label>
+              <label>创始人</label>
+            </a>
+		</div>
+			<div class="span4">
+		 <a href="https://github.com/mikaelkaron" target="_blank">
+              <img src="http://jsconfcn.qiniudn.com/img/speaker-mikaelkaron.jpg?imageView/2/w/150" />
+               <label>刘畅</label>
+              <label>创始人</label>
+            </a>
+		</div>
+	<div class="span4">
+		<a href="https://github.com/garryyao" target="_blank">
+              <img src="http://jsconfcn.qiniudn.com/img/speaker-garryyao.jpg?imageView/2/w/150" />
+               <label>刘畅</label>
+              <label>创始人</label>
+            </a>
+		</div>
+
+<div class="span4">
+		 <a href="http://cnberg.com" target="_blank">
+              <img src="http://jsconfcn.qiniudn.com/img/speaker-berg.png?imageView/2/w/150" />
+               <label>刘畅</label>
+              <label>创始人</label>
+            </a>
+		</div>
+		<div class="span4">
+		<a href="https://github.com/zensh/jsgen" target="_blank">
+              <img src="http://jsconfcn.qiniudn.com/img/speaker-yanqing.png?imageView/2/w/150" />
+               <label>刘畅</label>
+               <label>创始人</label>
+               </a>
+               </div>
+		</div>
+		</div>
+
+	<div class="container" id="schedule">
+<div class="row">
+	<div class="span12 titleh">
+		<strong>大会议程</strong>
+	</div>
+</div>
+<table id="scheduletable">
+<tr>
+	<th>2014/9/10</th>
+</tr>
+<tr>
+	<td>8:15</td>
+	<td>签到</td>
+	<td></td>
+	</tr>
+	<tr>
+		<td>09:15</td>
+		<td> Goddy Zhao</td>
+		<td>《JS中国开发者大会介绍》| slide | video</td>
+	</tr>
+	<tr>
+		<td>09:15</td>
+		<td> Goddy Zhao</td>
+		<td>《JS中国开发者大会介绍》| slide | video</td>
+	</tr>
+	<tr>
+		<td>09:15</td>
+		<td> Goddy Zhao</td>
+		<td>《JS中国开发者大会介绍》| slide | video</td>
+	</tr>
+	<tr>
+		<td>09:15</td>
+		<td> Goddy Zhao</td>
+		<td>《JS中国开发者大会介绍》| slide | video</td>
+	</tr>
+	<tr>
+		<td>09:15</td>
+		<td> Goddy Zhao</td>
+		<td>《JS中国开发者大会介绍》| slide | video</td>
+	</tr>
+	<tr>
+		<td>09:15</td>
+		<td> Goddy Zhao</td>
+		<td>《JS中国开发者大会介绍》| slide | video</td>
+	</tr>
+
+
+<hr>
+<tr>
+	<th>2014/9/10</th>
+</tr>
+<tr>
+		<td>09:15</td>
+		<td> Goddy Zhao</td>
+		<td>《JS中国开发者大会介绍》| slide | video</td>
+	</tr>
+	<tr>
+		<td>09:15</td>
+		<td> Goddy Zhao</td>
+		<td>《JS中国开发者大会介绍》| slide | video</td>
+	</tr>
+	<tr>
+		<td>09:15</td>
+		<td> Goddy Zhao</td>
+		<td>《JS中国开发者大会介绍》| slide | video</td>
+	</tr>
+	<tr>
+		<td>09:15</td>
+		<td> Goddy Zhao</td>
+		<td>《JS中国开发者大会介绍》| slide | video</td>
+	</tr>
+	<tr>
+		<td>09:15</td>
+		<td> Goddy Zhao</td>
+		<td>《JS中国开发者大会介绍》| slide | video</td>
+	</tr>
+	<tr>
+		<td>09:15</td>
+		<td> Goddy Zhao</td>
+		<td>《JS中国开发者大会介绍》| slide | video</td>
+	</tr>
+</table>
+	</div>
+<div class="container" id="sponsors">
+<div class="row">
+<div class="titleh">赞助者</div>
+
+</div>
+<hr>
+<div class="row">
+<div class="span6 offset3">
+<ul>
+	<li>
+		<a href="http://labs.ef.com/" target="blank"><img src="http://jsconfcn.qiniudn.com/img/ef.png" alt=""></a>
+	</li>
+	<li>
+		<a href="http://teambition.com/" target="blank"><img src="http://jsconfcn.qiniudn.com/img/teambition.png" alt=""></a>
+	</li>
+
+	<li>
+		<a href="http://www.qiniu.com" target="blank"><img src="http://jsconfcn.qiniudn.com/img/qiniu.png" alt=""></a>
+	</li>
+	<li>
+		<a href="http://wiredcraft.com/" target="blank"><img src="http://jsconfcn.qiniudn.com/img/wiredcraft.jpg" alt=""></a>
+	</li>
+	<li>
+		<a href="https://www.upyun.com/" target="blank"><img src="http://jsconfcn.qiniudn.com/img/upyun.png" alt=""></a>
+	</li>
+	<li>
+		<a href="http://www.souche.com/" target="blank"><img src="http://jsconfcn.qiniudn.com/img/dasouche.png" alt=""></a>
+	</li>
+	<li>
+		 <a href="http://www.yunshipei.com/" target="blank"><img src="http://jsconfcn.qiniudn.com/img/yunshipei.jpg" alt=""></a>
+	</li>
+</ul>
+</div>
+	</div>
+	</div>
+	<div class="container" id="prejs">
+	<div class="titleh">往期回顾</div>
+	<div id="myCarousel" class="carousel slide">
+   <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+   </ol>
+   <div class="carousel-inner centertext">
+      <div class="item active centertext" >
+      <a href="http://2014.jsconf.cn/">
+         <img src="img/jingjs.jpg" alt="First slide">
+         </a>
+      </div>
+      <div class="item centertext">
+       <a href="http://2014.jsconf.cn/">
+         <img src="img/hujs.jpg" alt="Second slide">
+         </a>
+      </div>
+      <div class="item centertext">
+       <a href="http://2014.jsconf.cn/">
+         <img src="img/jingjs.jpg" alt="Third slide">
+         </a>
+      </div>
+   </div>
+   <a class="carousel-control left" href="#myCarousel" 
+      data-slide="prev">&lsaquo;</a>
+   <a class="carousel-control right" href="#myCarousel" 
+      data-slide="next">&rsaquo;</a>
+</div> 
+	<div class="titleh">关注我们</div>
+	</br>
+	<div class="container" id="subscribe">
+		<div class="centertext">扫描下面[微信二维码]获取最新大会动态</div></br>
+		<div class="centertext"> <img src="img/weixin.png"></div>
+	</div>
+<footer >
+	<div class="container">
+	<hr>
+	<div class="centertext">
+		
+		<p>2014.8.8</p>
+		<p>built by Polly for test</p>
+			</div>
+	</div>
+</footer>
+  <script type="text/javascript" src="http://jsconfcn.qiniudn.com/lib/mapsapi.js"></script>
+  <script type="text/javascript" src="http://jsconfcn.qiniudn.com/lib/gmaps.js"></script>
+  <script type="text/javascript">
+
+    var venueMap = new GMaps({
+      div: '#venue-map',
+      lat: 30.312208,
+      lng: 120.324304
+    });
+
+    venueMap.addMarker({
+      lat: 30.312208,
+      lng: 120.324304,
+      title: '杭州和达希尔顿逸林酒店',
+      infoWindow: {
+        content: '<div class="light"><p><h3>杭州和达希尔顿逸林酒店</h3></p><p class="light">杭州市经济技术开发区金沙大道600号<br/>杭州, 浙江, 中国<br/>(86 571) 8989 8888<br/><a target="_blank" href="http://doubletree.com.cn/HGHHEDI/">杭州和达希尔顿逸林酒店</a>‎<br/></p></div>'
+      }
+    })
+
+  </script>
+<script type="text/javascript">
+function validate_email(field,alerttxt)
+{
+with (field)
+{
+apos=value.indexOf("@")
+dotpos=value.lastIndexOf(".")
+if (apos<1||dotpos-apos<2) 
+  {alert(alerttxt);return false}
+else {alert("congratulation");return true}
+}
+}
+
+function validate_form(thisform)
+{
+with (thisform)
+{
+if (validate_email(email,"Not a valid e-mail address!")==false)
+  {email.focus();return false}
+}
+}
+</script>
+</body>
+</html>
